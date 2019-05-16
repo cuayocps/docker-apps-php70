@@ -27,9 +27,6 @@ RUN docker-php-ext-install \
       zip \
       soap
 
-RUN pecl install apc-3.1.13; \
-  echo "extension=/usr/local/lib/php/extensions/no-debug-non-zts-20151012/apc.so" >> /usr/local/etc/php/php.ini
-
 RUN pecl install channel://pecl.php.net/xdebug-2.7.2; \
   echo 'zend_extension = /usr/local/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so' >> /usr/local/etc/php/php.ini
 
