@@ -15,6 +15,19 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get clean all
 
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get autoremove -y && \
+    apt-get clean all
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get update && \
+    apt-get install --fix-missing -y nodejs && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get autoremove -y && \
+    apt-get clean all
+RUN npm install -g bower
+
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr
 RUN docker-php-ext-install \
       mbstring \
